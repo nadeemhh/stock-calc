@@ -92,8 +92,8 @@ let target=( entryprice- stoploss)* riskRewardRatio + entryprice;
 
   document.querySelector('.Loss').textContent = Loss;
 
-  document.querySelector('.lm').textContent = Math.floor(entryprice - stoploss);
-  document.querySelector('.pm').textContent = Math.floor((entryprice - stoploss) * riskRewardRatio);
+  document.querySelector('.lm').textContent = entryprice - stoploss;
+  document.querySelector('.pm').textContent = (entryprice - stoploss) * riskRewardRatio;
 
 }
 
@@ -115,8 +115,8 @@ return;
 
     document.querySelector('.Loss').textContent = Loss;
 
-    document.querySelector('.lm').textContent = Math.floor(stoploss - entryprice);
-    document.querySelector('.pm').textContent = Math.floor((stoploss - entryprice) * riskRewardRatio);
+    document.querySelector('.lm').textContent = stoploss - entryprice);
+    document.querySelector('.pm').textContent = (stoploss - entryprice) * riskRewardRatio;
 
   }
 
