@@ -1,0 +1,14 @@
+{
+  "name": "node_mysql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "nadeem",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
