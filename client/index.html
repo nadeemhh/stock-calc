@@ -51,12 +51,16 @@
 <br>
 <br>
 <label for="">Loss = </label> <label class="Loss">0</label>
-
+<br>
+<br>
+<label for="">Profit = </label> <label class="profit">0</label>
 <br>
 <br>
 
-<label for="">Loss margin = <sup class="lm">0</sup> ----</label>
- <label for="">Profit margin = <sup class="pm">0</sup> </label>
+<label for="">Loss margin = <sup class="lm">0</sup></label>
+<br>
+<br>
+ <label for="">Profit margin = <sup class="pm">0</sup></label>
 
 </div>
 
@@ -92,6 +96,12 @@ let target=( entryprice- stoploss)* riskRewardRatio + entryprice;
 
   document.querySelector('.Loss').textContent = Loss;
 
+let profit =(entryprice - stoploss)*riskRewardRatio*Number(document.querySelector('.numberofstock').textContent);
+
+  document.querySelector('.profit').textContent = profit;
+
+
+  
   document.querySelector('.lm').textContent = entryprice - stoploss;
   document.querySelector('.pm').textContent = (entryprice - stoploss) * riskRewardRatio;
 
@@ -115,6 +125,11 @@ return;
 
     document.querySelector('.Loss').textContent = Loss;
 
+let profit =(stoploss - entryprice)*riskRewardRatio*Number(document.querySelector('.numberofstock').textContent);
+
+  document.querySelector('.profit').textContent = profit;
+
+    
     document.querySelector('.lm').textContent = stoploss - entryprice;
     document.querySelector('.pm').textContent = (stoploss - entryprice) * riskRewardRatio;
 
