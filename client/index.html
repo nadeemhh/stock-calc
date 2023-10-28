@@ -1,142 +1,155 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-        body{display: flex;flex-direction: column;justify-content: center;align-items: center;}
-    .fields{display: flex;flex-direction: column;align-items: center;gap:5px}
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .fields {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px
+    }
   </style>
   <title>Document</title>
 </head>
+
 <body>
-<div class="stock-calculate">
+  <div class="stock-calculate">
 
-<label for="">risk reward ratio </label>
-<select class="riskRewardRatio">
-<option>1</option>
-<option>1.5</option>
-<option selected>2</option>
-<option>2.5</option>
-<option>3</option>
-<option>4</option>
-</select>
+    <label for="">risk reward ratio </label>
+    <select class="riskRewardRatio">
+      <option>1</option>
+      <option>1.5</option>
+      <option>2</option>
+      <option>2.5</option>
+      <option selected>3</option>
+      <option>4</option>
+    </select>
 
-<br>
-<br>
+    <br>
+    <br>
 
-<label for="">buy/sell</label>
-<select class="positionType">
-  <option>long</option>
-  <option>short</option>
-</select>
-<br>
-<br>
+    <label for="">buy/sell</label>
+    <select class="positionType">
+      <option>long</option>
+      <option>short</option>
+    </select>
+    <br>
+    <br>
 
-<div class="fields">
-<input type="number" class="entry-price" placeholder="entry-price">
-<input type="number" class="stoploss" placeholder="stoplosss">
-<input type="number" class="expected-profit" placeholder="expected-profits">
-<button class="Calcuate">calculate</button>
-</div>
-</div>
+    <div class="fields">
+      <input type="number" class="entry-price" placeholder="entry-price">
+      <input type="number" class="stoploss" placeholder="stoplosss">
+      <input type="number" class="expected-profit" placeholder="expected-profits">
+      <button class="Calcuate">calculate</button>
+    </div>
+  </div>
 
-<div class="stock-calculated-details">
-<br>
-<br>
-<label for="">Target = </label>  <label class="target">0</label>
-<br>
-<br>
-<label for="">Number Of Stock = </label>  <label class="numberofstock">0</label>
-<br>
-<br>
-<label for="">Loss = </label> <label class="Loss">0</label>
-<br>
-<br>
-<label for="">Profit = </label> <label class="profit">0</label>
-<br>
-<br>
+  <div class="stock-calculated-details">
+    <br>
+    <br>
+    <label for="">Target = </label> <label class="target">0</label>
+    <br>
+    <br>
+    <label for="">Number Of Stock = </label> <label class="numberofstock">0</label>
+    <br>
+    <br>
+    <label for="">Loss = </label> <label class="Loss">0</label>
+    <br>
+    <br>
+    <label for="">Profit = </label> <label class="profit">0</label>
+    <br>
+    <br>
+    <label for="">Loss margin = </label><label class="lm">0</label>
+    <br>
+    <br>
+    <label for="">Profit margin = </label><label class="pm">0</label>
 
-<label for="">Loss margin = <sup class="lm">0</sup></label>
-<br>
-<br>
- <label for="">Profit margin = <sup class="pm">0</sup></label>
-
-</div>
+  </div>
 
 
   <script>
-document.querySelector('.Calcuate').addEventListener('click',function () {
+    document.querySelector('.Calcuate').addEventListener('click', function () {
 
-  let entryprice = Number(document.querySelector('.entry-price').value);
-  let stoploss = Number(document.querySelector('.stoploss').value);
-  let expectedprofit = Number(document.querySelector('.expected-profit').value);
-
-
-  let riskRewardRatio = Number(document.querySelector('.riskRewardRatio')[document.querySelector('.riskRewardRatio').selectedIndex].textContent);
-
-  let positionType = document.querySelector('.positionType')[document.querySelector('.positionType').selectedIndex].textContent;
-
-console.log(entryprice, stoploss, expectedprofit, riskRewardRatio, positionType)
-
-if(positionType=='long'){
-
-if(stoploss>entryprice){
-alert('wrong stoploss')
-return;
-}
-
-let target=( entryprice- stoploss)* riskRewardRatio + entryprice;
-  document.querySelector('.target').textContent= target;
-
-  let numberofstock = Math.floor(expectedprofit / ((entryprice - stoploss)* riskRewardRatio));
-  document.querySelector('.numberofstock').textContent = numberofstock+1;
-
-    let Loss =(entryprice - stoploss)*Number(document.querySelector('.numberofstock').textContent);
-
-  document.querySelector('.Loss').textContent = Loss;
-
-let profit =(entryprice - stoploss)*riskRewardRatio*Number(document.querySelector('.numberofstock').textContent);
-
-  document.querySelector('.profit').textContent = profit;
+      let entryprice = Number(document.querySelector('.entry-price').value);
+      let stoploss = Number(document.querySelector('.stoploss').value);
+      let expectedprofit = Number(document.querySelector('.expected-profit').value);
 
 
-  
-  document.querySelector('.lm').textContent = entryprice - stoploss;
-  document.querySelector('.pm').textContent = (entryprice - stoploss) * riskRewardRatio;
+      let riskRewardRatio = Number(document.querySelector('.riskRewardRatio')[document.querySelector('.riskRewardRatio').selectedIndex].textContent);
 
-}
+      let positionType = document.querySelector('.positionType')[document.querySelector('.positionType').selectedIndex].textContent;
+
+      console.log(entryprice, stoploss, expectedprofit, riskRewardRatio, positionType)
+
+      if (positionType == 'long') {
+
+        if (stoploss > entryprice) {
+          alert('wrong stoploss')
+          return;
+        }
+
+        let target = (entryprice - stoploss) * riskRewardRatio + entryprice;
+        document.querySelector('.target').textContent = target.toFixed(2);
+
+        let numberofstock = Math.floor(expectedprofit / ((entryprice - stoploss) * riskRewardRatio));
+        document.querySelector('.numberofstock').textContent = (numberofstock + 1).toFixed(2);
+
+        let Loss = (entryprice - stoploss) * Number(document.querySelector('.numberofstock').textContent);
+
+        document.querySelector('.Loss').textContent = Loss.toFixed(2);
+
+        let profit = (entryprice - stoploss) * riskRewardRatio * Number(document.querySelector('.numberofstock').textContent);
+
+        document.querySelector('.profit').textContent = profit.toFixed(2);
 
 
-  if (positionType == 'short') { 
 
-    if(stoploss<entryprice){
-alert('wrong stoploss')
-return;
-}
+        document.querySelector('.lm').textContent = (entryprice - stoploss).toFixed(2);
+        document.querySelector('.pm').textContent = ((entryprice - stoploss) * riskRewardRatio).toFixed(2);
 
-    let target = (entryprice-(stoploss - entryprice) * riskRewardRatio);
-    document.querySelector('.target').textContent = target;
+      }
 
-    let numberofstock = Math.floor(expectedprofit / ((stoploss - entryprice) * riskRewardRatio));
-    document.querySelector('.numberofstock').textContent = numberofstock + 1;
 
-    let Loss = (stoploss - entryprice) * Number(document.querySelector('.numberofstock').textContent);
+      if (positionType == 'short') {
 
-    document.querySelector('.Loss').textContent = Loss;
+        if (stoploss < entryprice) {
+          alert('wrong stoploss')
+          return;
+        }
 
-let profit =(stoploss - entryprice)*riskRewardRatio*Number(document.querySelector('.numberofstock').textContent);
+        let target = (entryprice - (stoploss - entryprice) * riskRewardRatio);
+        document.querySelector('.target').textContent = target.toFixed(2);
 
-  document.querySelector('.profit').textContent = profit;
+        let numberofstock = Math.floor(expectedprofit / ((stoploss - entryprice) * riskRewardRatio));
+        document.querySelector('.numberofstock').textContent = (numberofstock + 1).toFixed(2);
 
-    
-    document.querySelector('.lm').textContent = stoploss - entryprice;
-    document.querySelector('.pm').textContent = (stoploss - entryprice) * riskRewardRatio;
+        let Loss = (stoploss - entryprice) * Number(document.querySelector('.numberofstock').textContent);
 
-  }
+        document.querySelector('.Loss').textContent = Loss.toFixed(2);
 
-})
+        let profit = (stoploss - entryprice) * riskRewardRatio * Number(document.querySelector('.numberofstock').textContent);
+
+        document.querySelector('.profit').textContent = profit.toFixed(2);
+
+
+        document.querySelector('.lm').textContent = (stoploss - entryprice).toFixed(2);
+        document.querySelector('.pm').textContent = ((stoploss - entryprice) * riskRewardRatio).toFixed(2);
+
+      }
+
+    })
 
   </script>
 </body>
+
 </html>
