@@ -12,7 +12,9 @@
 
 .proposal-parent{width: 600px;height: 450px;overflow-y: scroll;margin-top: 50px;border-top: 1px solid black;}
 
+.Proposal-Generator-parent{background-color: white;padding: 10px;}
 
+.price{color: green;font-weight: 600;}
     </style>
     <title>Document</title>
 </head>
@@ -20,17 +22,17 @@
   
 
 <div class="container">
-     <p>Website Proposal Generator  -  sent count <span class="mcount">0</span></p>
+    <div class="Proposal-Generator-parent">
+    <p>Website Proposal Generator  -  sent count <span class="mcount">0</span></p>
     <label for="companyName">Enter Company Name: </label>
     <input type="text" id="companyName">
     <button onclick="generateProposal()">Generate Proposal</button>
+    </div>
 <div class="proposal-parent">
 <p class="proposal">
-    
-    ** <span class="Company-Name">Company Name</span> **   Grow Your Business With A Dynamic Website<br><br>
+    ** <span class="Company-Name">Company Name</span> ** Grow Your Business With A Dynamic Website<br><br><br><br>
 
-    Dear  <span class="Company-Name">Company Name</span>  Team,<br><br><br><br>
-
+    Dear  <span class="Company-Name">Company Name</span>  Team,<br><br>
     I hope this message finds you well. My name is Nadeem, and I specialize in creating impactful digital experiences
     through website development. I am reaching out to propose the creation of a website tailored to enhance your
     company's
@@ -59,7 +61,7 @@
     conversions through
     integrated features like contact forms, e-commerce capabilities, and lead generation tools.<br><br><br>
 
-    <span style="font-weight: 600;">You will receive these pages tailored for your business.</span><br><br><br>
+    <span style="font-weight: 600;">You will receive these pages and benefits tailored specifically for your business.</span><br><br><br>
 
     <strong>1. Home Page</strong> = The gateway to your online presence, designed to captivate visitors and provide an overview of your
     brand, services, and unique value proposition.<br><br><br>
@@ -82,8 +84,10 @@
     client
     inquiries.<br><br><br>
 
+    <strong> 7. Digital Marketing Integration</strong> = We will Implement basic digital marketing elements to enhance online visibility and attract more potential customers.<br><br><br>
+
     The cost for this comprehensive website, designed specifically for [ <span class="Company-Name">Company Name</span> ],
-    is ₹2999.<br><br>
+    is <span class="price">₹2999</span>.<br><br>
 
     Thank you for considering my proposal. Looking forward to your positive response.<br><br>
 
@@ -91,21 +95,39 @@
 
     WebSolve<br><br>
     Contact us = +91 7982598385<br>
-    Visit Website =<a href="https://brainy-hen-skirt.cyclic.app/#">WebSolve</a><br>
+    Visit Website = <a href="https://brainy-hen-skirt.cyclic.app/#">websolve.com</a><br>
     WhatsApp Message = <a href="https://wa.me/message/CO5HRVPL745AC1">Click Me for Message</a>
 </p>
 </div>
 </div>
     <script>
 
+let companyNameCheck='none';
   function generateProposal() {
+
     console.log('ll')
+
         const companyName = document.getElementById('companyName').value;
         document.querySelectorAll('.Company-Name')[0].textContent= companyName;
         document.querySelectorAll('.Company-Name')[1].textContent = companyName;
           document.querySelectorAll('.Company-Name')[2].textContent = companyName;
-          document.querySelector('.mcount').textContent=`${Number(document.querySelector('.mcount').textContent)+1}`;
+
+          if(companyName != companyNameCheck){
+
+      document.querySelector('.mcount').textContent=`${Number(document.querySelector('.mcount').textContent)+1}`;
+      companyNameCheck= companyName;
+              document.getElementById('companyName').value='';
+      document.querySelector('.Proposal-Generator-parent').style.backgroundColor= 'rgb(255, 0, 0)';
+
+       let scrollableDiv = document.querySelector(".proposal-parent");
+         scrollableDiv.scrollTop = 0;
+      setTimeout(() => {
+       document.querySelector('.Proposal-Generator-parent').style.backgroundColor = 'white';
+      }, 250);
+  }
+          
     }
+
 
     </script>
 </body>
