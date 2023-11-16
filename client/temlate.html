@@ -29,9 +29,10 @@
     <button onclick="generateProposal()">Generate Proposal</button>
     </div>
 <div class="proposal-parent">
-<p class="proposal">
-    ** <span class="Company-Name">Company Name</span> ** Grow Your Business With A Dynamic Website<br><br><br><br>
-
+<div class="proposal">
+    <p id="myParagraph" onclick="selectText('myParagraph')">** <span class="Company-Name">Company Name</span> ** Grow Your Business With A Dynamic Website<br><br><br><br></p>
+   
+<p id="myParagraph2" onclick="selectText('myParagraph2')">
     Dear  <span class="Company-Name">Company Name</span>  Team,<br><br>
     I hope this message finds you well. My name is Nadeem, and I specialize in creating impactful digital experiences
     through website development. I am reaching out to propose the creation of a website tailored to enhance your
@@ -97,7 +98,8 @@
     Contact us = +91 7982598385<br>
     Visit Website = <a href="https://brainy-hen-skirt.cyclic.app/#">websolve.com</a><br>
     WhatsApp Message = <a href="https://wa.me/message/CO5HRVPL745AC1">Click Me for Message</a>
-</p>
+    </p>
+</div>
 </div>
 </div>
     <script>
@@ -119,8 +121,7 @@ let companyNameCheck='none';
               document.getElementById('companyName').value='';
       document.querySelector('.Proposal-Generator-parent').style.backgroundColor= 'rgb(255, 0, 0)';
 
-       let scrollableDiv = document.querySelector(".proposal-parent");
-         scrollableDiv.scrollTop = 0;
+      localStorage.setItem('last sent',companyName)
       setTimeout(() => {
        document.querySelector('.Proposal-Generator-parent').style.backgroundColor = 'white';
       }, 250);
@@ -128,7 +129,29 @@ let companyNameCheck='none';
           
     }
 
+    function selectText(elementId) {
+        const paragraph = document.getElementById(elementId);
 
+        if (window.getSelection) {
+            const selection = window.getSelection();
+            const range = document.createRange();
+            range.selectNodeContents(paragraph);
+            selection.removeAllRanges();
+            selection.addRange(range);
+        } else if (document.selection) {
+            const range = document.body.createTextRange();
+            range.moveToElementText(paragraph);
+            range.select();
+        }
+    }
+
+    function clearSelection() {
+        if (window.getSelection) {
+            window.getSelection().removeAllRanges();
+        } else if (document.selection) {
+            document.selection.empty();
+        }
+    }
     </script>
 </body>
 </html>
