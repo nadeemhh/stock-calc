@@ -5,152 +5,286 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
 
+*{margin: 0;padding: 0;box-sizing: border-box;}
 
-.container {
-  text-align: center;
+.main-parent{width:400px;height: 100%;background-color: rgb(255, 205, 205);overflow-y: auto;padding: 5px;}
+
+.available-sentance{width:100%;height: 120px;background-color: rgb(255, 174, 174);overflow-y: scroll;margin-bottom: 10px;border-bottom: 2px solid rgb(0, 0, 0);padding: 5px;}
+
+.text-container-parent{height: 80px;background-color: rgb(174, 174, 255);font-size: 15px;overflow-y: auto;margin-bottom: 10px;}
+
+
+.buttton-container{display: flex;gap: 10px;padding: 5px;margin-bottom: 10px;align-items: center;}
+.buttton-container>button{background-color: rgb(209, 159, 255);padding: 5px;}
+
+.addtext{width:100%;height: 200px;overflow-y: auto;background-color: rgb(255, 181, 181);display: none;}
+
+.proposal-generator{display: none;}
+
+
+@media (max-width: 1000px) {
+  /* Styles for screens with a maximum width of 768px */
+ .main-parent{
+   width:100%;
+  }
 }
-
-.proposal-parent{width: 600px;height: 450px;overflow-y: scroll;margin-top: 50px;border-top: 1px solid black;}
-
-.Proposal-Generator-parent{background-color: white;padding: 10px;}
-
-.price{color: green;font-weight: 600;}
     </style>
     <title>Document</title>
 </head>
-<body>
-  
+<body style="display: flex;justify-content: center;height: 100vh;">
+    
+<div class="main-parent">
 
-<div class="container">
-    <div class="Proposal-Generator-parent">
-    <p>Website Proposal Generator  -  sent count <span class="mcount">0</span></p>
-    <label for="companyName">Enter Company Name: </label>
-    <input type="text" id="companyName">
-    <button onclick="generateProposal()">Generate Proposal</button>
+
+    <div class="available-sentance">
+
+<!-- new container -->
+
+<div class="text-container-parent">
+    <div class="checkbox">
+        <input type="checkbox" checked>
     </div>
-<div class="proposal-parent">
-<div class="proposal">
-    <p id="myParagraph" onclick="selectText('myParagraph')">📈 *<span class="Company-Name">Company Name</span>* Grow Your Business With A Dynamic Website<br><br><br><br></p>
+    <div class="text-container" order="1">
+1. **Responsive Design:** Optimizing the website for all devices, ensuring seamless access on smartphones, tablets, or
+desktops.
+    </div>
+</div>
+
+<!-- new container -->
+
+<div class="text-container-parent">
+    <div class="checkbox">
+        <input type="checkbox" checked>
+    </div>
+    <div class="text-container" order="2">
+        2. **ON Page SEO:** Industry best practices for enhanced visibility and reach.
+    </div>
+</div>
+
+<!-- new container -->
+
+<div class="text-container-parent">
+    <div class="checkbox">
+        <input type="checkbox" checked>
+    </div>
+    <div class="text-container" order="3">
+3. **Digital Marketing Integration**: Implement basic digital marketing elements to enhance online visibility and
+attract more potential customers.
+    </div>
+</div>
+
+<!-- new container -->
+
+    <div class="text-container-parent">
+        <div class="checkbox">
+            <input type="checkbox" checked>
+        </div>
+        <div class="text-container" order="4">
+        4. **Benefits:** I will provide you with free hosting for a lifetime, along with a free subdomain.
+        </div>
+    </div>
+    
+    <!-- new container -->
+    
+
+    <div class="text-container-parent">
+        <div class="checkbox">
+            <input type="checkbox">
+        </div>
+        <div class="text-container" order="5">
+            5. **SEO Optimization:** Industry best practices for enhanced visibility and reach.
+        </div>
+    </div>
+    
+    <!-- new container -->
+
+
+    <div class="text-container-parent">
+        <div class="checkbox">
+            <input type="checkbox" checked>
+        </div>
+        <div class="text-container" order="6">
+    6. **Long-Term Support:** Ongoing assistance for updates and troubleshooting.
+        </div>
+    </div>
+    
    
-<p id="myParagraph2" onclick="selectText('myParagraph2')">
-    Dear  <span class="Company-Name">Company Name</span>  Team,<br><br>
-    I hope this message finds you well. My name is Nadeem, and I specialize in creating impactful digital experiences
-    through website development. I am reaching out to propose the creation of a website tailored to enhance your
-    company's
-    online presence.<br><br>
+    <!-- new container -->
+    
+    
 
-    <span style="font-weight: 600; background-color: rgb(211, 215, 255);">In today's digital era, a robust online presence is integral to a company's success. Here are some key benefits of having a well-crafted website: ⬇️</span><br><br><br>
+    
 
-    <strong>1. Enhanced Visibility</strong> = A website acts as a virtual storefront, enabling potential customers to
-    find and learn
-    about your business 24/7, irrespective of geographical boundaries.<br><br><br>
+    </div>
 
-    <strong>2. Credibility and Trust</strong> = A professionally designed website establishes credibility, showcasing
-    your expertise,
-    testimonials, and portfolio, thus instilling trust among your audience.<br><br><br>
 
-    <strong>3. Brand Promotion</strong> = Your website serves as a powerful tool for brand promotion. It communicates
-    your brand story,
-    values, and uniqueness, creating a lasting impression on visitors.<br><br><br>
+    <div style="display: flex;flex-direction: column;align-items: center;">
 
-    <strong>4. Increased Reach and Accessibility</strong> = With a website, your business becomes accessible globally,
-    broadening your
-    reach to a wider audience and potentially increasing customer base.<br><br><br>
-
-    <strong>5. Marketing and Sales</strong> = Utilize your website as a platform for marketing initiatives and sales
-    conversions through
-    integrated features like contact forms, e-commerce capabilities, and lead generation tools.<br><br><br>
-
-    <span style="font-weight: 600; background-color: rgb(148, 255, 148);">You will receive these pages and benefits tailored specifically for your business. ⬇️</span><br><br><br>
-
-    <strong>1. Home Page</strong> = The gateway to your online presence, designed to captivate visitors and provide an overview of your
-    brand, services, and unique value proposition.<br><br><br>
-
-    <strong>2. About Us Page</strong> = A page dedicated to showcasing your company's story, mission, team members, and the values that
-    differentiate you from the competition.<br><br><br>
-
-    <strong>3. Services/Products Page</strong> = Highlighting your offerings in an engaging manner, providing detailed information about
-    each
-    service/product you provide.<br><br><br>
-
-    <strong>4. Portfolio/Case Studies Page</strong> = Showcasing your previous successful projects or case studies, establishing
-    credibility
-    and demonstrating your expertise.<br><br><br>
-
-    <strong>5. Testimonials</strong> = Incorporating client testimonials and reviews to build trust and reinforce the quality of your
-    services/products.<br><br><br>
-
-<strong> 6. Contact Form</strong> = Providing contact details, a contact form, and a map for ease of communication and potential
-    client
-    inquiries.<br><br><br>
-
-    <strong> 7. Digital Marketing Integration</strong> = We will Implement basic digital marketing elements to enhance online visibility and attract more potential customers.<br><br><br>
-
-    The cost for this comprehensive website, designed specifically for [ <span class="Company-Name">Company Name</span> ],
-    is <span class="price">₹4999</span>.<br><br>
-
-    Thank you for considering my proposal. Looking forward to your positive response.<br><br>
-
-    Warm regards,<br><br>
-
-    WebSolve<br><br>
-    Contact us = +91 7982598385<br>
-    WhatsApp Message = <a href="https://wa.me/message/CO5HRVPL745AC1">Click for Message</a><br>
-    Website = <a href="https://brainy-hen-skirt.cyclic.app/#">websolve</a>
-    </p>
+        <div class="buttton-container">
+            <p class="total-number"></p>
+<button class="show">show</button>
+<button class="copy"  onclick="copyToClipboard()">copy</button>
+<button class="generate">generate</button>
+<button class="get">get</button>
 </div>
+<textarea name="" class="proposal-generator" cols="50" rows="10">
+
+</textarea>
+
+<div class="addtext" contenteditable="true">
+
 </div>
+
+    </div>
+
 </div>
+
     <script>
 
-let companyNameCheck='none';
-  function generateProposal() {
 
-    console.log('ll')
+    
+    document.querySelector(".get").addEventListener('click', function () {
+        document.querySelector('.addtext').style.display = 'block';
+        let text = document.querySelector('.proposal-generator').value;
+        console.log(text)
 
-        const companyName = document.getElementById('companyName').value;
-        document.querySelectorAll('.Company-Name')[0].textContent= companyName;
-        document.querySelectorAll('.Company-Name')[1].textContent = companyName;
-          document.querySelectorAll('.Company-Name')[2].textContent = companyName;
+        let html;
+        html = `This is client's requirement on freelancer.com => "${text}"  Please write a proposal for this and add features and The proposal should not be too long.`
+        document.querySelector('.addtext').insertAdjacentHTML('beforeend', html); 
+         document.querySelector('.proposal-generator').style.display = 'none';
+    })
 
-          if(companyName != companyNameCheck){
 
-      document.querySelector('.mcount').textContent=`${Number(document.querySelector('.mcount').textContent)+1}`;
-      companyNameCheck= companyName;
-              document.getElementById('companyName').value='';
-      document.querySelector('.Proposal-Generator-parent').style.backgroundColor= 'rgb(255, 0, 0)';
+    document.querySelector(".generate").addEventListener('click', function () {
 
-      localStorage.setItem('last sent',companyName)
-      setTimeout(() => {
-       document.querySelector('.Proposal-Generator-parent').style.backgroundColor = 'white';
-      }, 250);
-  }
-          
-    }
+          document.querySelector('.addtext').style.display = 'block';
 
-    function selectText(elementId) {
-        const paragraph = document.getElementById(elementId);
+        let text = document.querySelector('.proposal-generator').value;
+        console.log(text)
 
-        if (window.getSelection) {
-            const selection = window.getSelection();
-            const range = document.createRange();
-            range.selectNodeContents(paragraph);
-            selection.removeAllRanges();
-            selection.addRange(range);
-        } else if (document.selection) {
-            const range = document.body.createTextRange();
-            range.moveToElementText(paragraph);
-            range.select();
+        // Initialize an empty array to store the text containers
+        const checkedTextContainers = [];
+
+        // Get all elements with the class name 'text-container-parent'
+        const textContainerParents = document.querySelectorAll('.text-container-parent');
+
+        // Iterate through each 'text-container-parent' element
+        textContainerParents.forEach(parent => {
+            // Find the checkbox within the current 'text-container-parent'
+            const checkbox = parent.querySelector('.checkbox input[type="checkbox"]');
+
+            // Find the text container within the current 'text-container-parent'
+            const textContainer = parent.querySelector('.text-container');
+
+            // Check if the checkbox is checked
+            if (checkbox.checked) {
+                // If the checkbox is checked, push the associated text container into the array
+                checkedTextContainers.push(textContainer);
+            }
+        });
+
+        // Now 'checkedTextContainers' array contains the checked text container elements
+        console.log(checkedTextContainers); // Output the array of checked text containers
+
+
+        
+        const textContainers = checkedTextContainers;  
+        const sortedDivs = Array.from(textContainers).sort((a, b) => {
+            return parseInt(a.getAttribute('order')) - parseInt(b.getAttribute('order'));
+        });
+
+       console.log( sortedDivs)
+
+
+        let html;
+         html = `Kindly read the full proposal for a complete understanding.
+<br><br>${text}`
+           document.querySelector('.addtext').insertAdjacentHTML('beforeend', html); 
+
+        for (let i = 0; i < sortedDivs.length; i++) {
+           let text = document.querySelector('.addtext').textContent;
+             html = `<br><br>${sortedDivs[i].textContent}`
+            
+            document.querySelector('.addtext').insertAdjacentHTML('beforeend', html); 
         }
+
+
+           html = `<br><br>
+            I'm providing a competitive rate for this project, aiming to build a strong portfolio with positive reviews.
+<br>
+<br>
+            Thank you for considering my proposal. Looking forward to your positive response.
+<br>
+<br>
+            Sincerely,
+            <br>
+            Nadeem`
+        document.querySelector('.addtext').insertAdjacentHTML('beforeend', html); 
+
+         document.querySelector('.proposal-generator').style.display = 'none';
+
+
+
+         // count words
+
+        const addTextDiv = document.querySelector('.addtext');
+
+        // Get the paragraph element where you want to display the total word count
+        const totalNumberParagraph = document.querySelector('.total-number');
+
+        // Function to count words in the given text
+        function countWords(text) {
+            // Remove extra spaces and then split the text by spaces to count words
+            const words = text.trim().split(/\s+/);
+            return words.length;
+        }
+
+        // Get the text content of the 'addtext' div and count the words
+        const textContent = addTextDiv.textContent;
+        const wordCount = countWords(textContent);
+
+        // Display the word count in the paragraph element
+        totalNumberParagraph.textContent = `words: ${wordCount}`;
+
+
+    })
+
+
+
+
+         document.querySelector(".show").addEventListener('click', function () {
+               document.querySelector('.proposal-generator').value='';
+            document.querySelector('.proposal-generator').style.display='block';
+              
+             document.querySelector('.addtext').textContent='';
+             document.querySelector('.addtext').style.display = 'none';
+            })
+
+
+            
+    function copyToClipboard() {
+        // Select the text to copy
+        const textToCopy = document.querySelector('.addtext');
+
+        // Create a temporary textarea element to hold the text
+        const textarea = document.createElement('textarea');
+        textarea.value = textToCopy.innerText;
+        document.body.appendChild(textarea);
+
+        // Select the text within the textarea
+        textarea.select();
+        textarea.setSelectionRange(0, 99999); // For mobile devices
+
+        // Copy the selected text to the clipboard
+        document.execCommand('copy');
+
+        // Remove the temporary textarea
+        document.body.removeChild(textarea);
+
+    
     }
 
-    function clearSelection() {
-        if (window.getSelection) {
-            window.getSelection().removeAllRanges();
-        } else if (document.selection) {
-            document.selection.empty();
-        }
-    }
+
     </script>
 </body>
 </html>
