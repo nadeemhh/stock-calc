@@ -149,7 +149,14 @@ attract more potential customers.
         console.log(text)
 
         let html;
-        html = `This is client's requirement on freelancer.com => "${text}"  Please write a proposal for this and add features and The proposal should not be too long.`
+        html = `This is client's requirement on freelancer.com => "${text}"  Please write a proposal for this and add features And you have to take care of these points specified below.
+
+1. Start proposal with saying 'Dear Client'.
+
+2. add features in proposal with heading 'Here's what I can offer:'.
+
+3. proposal should not be too long.`;
+        
         document.querySelector('.addtext').insertAdjacentHTML('beforeend', html); 
          document.querySelector('.proposal-generator').style.display = 'none';
     })
