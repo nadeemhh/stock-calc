@@ -21,7 +21,13 @@
 
 .proposal-generator{display: none;}
 
-
+button.show:active,
+button.copy:active,
+button.generate:active,
+button.get:active {
+  transform: scale(0.9);
+  background-color: rgb(181, 101, 255);
+}
 @media (max-width: 1000px) {
   /* Styles for screens with a maximum width of 768px */
  .main-parent{
@@ -149,14 +155,14 @@ attract more potential customers.
         console.log(text)
 
         let html;
-        html = `This is client's requirement on freelancer.com => "${text}"  Please write a proposal for this And you have to take care of these points specified below.
+      html = `This is client's requirement on freelancer.com => "${text}"  Please write a proposal for this And you have to take care of these points specified below.
+<br>
 <br>
 1. Start proposal with saying 'Dear Client'.
 <br>
 2. add features in proposal with heading 'Here's what I can offer:'.
 <br>
 3. proposal should not be too long.`;
-        
         document.querySelector('.addtext').insertAdjacentHTML('beforeend', html); 
          document.querySelector('.proposal-generator').style.display = 'none';
     })
@@ -205,7 +211,7 @@ attract more potential customers.
 
         let html;
          html = `Kindly read the full proposal for a complete understanding.
-<br><br>${text}`
+<br><br>${text.replace(/\n/g, '<br>') }`
            document.querySelector('.addtext').insertAdjacentHTML('beforeend', html); 
 
         for (let i = 0; i < sortedDivs.length; i++) {
@@ -230,20 +236,8 @@ attract more potential customers.
 
          document.querySelector('.proposal-generator').style.display = 'none';
 
-
-
          // count words
-
-        // Get the text content from the div
-         text = document.querySelector('.addtext').textContent;
-
-        // Remove spaces from the text and get the character count
-        const characterCountWithoutSpaces = text.replace(/\s/g, '').length;
-
-        // Update the <p> element with the total character count without spaces
-        document.querySelector('.total-number').textContent = `characters : ${characterCountWithoutSpaces}`;
-
-
+         countCharacters();
 
     })
 
@@ -282,7 +276,26 @@ attract more potential customers.
     
     }
 
+    const contentDiv = document.querySelector('.addtext');
+    const charCountSpan = document.querySelector('.total-number');
 
+    // Function to count characters
+    function countCharacters() {
+     console.log('k')
+
+      let text = document.querySelector('.addtext').textContent;
+
+        // Remove spaces from the text and get the character count
+        const characterCountWithoutSpaces = text.replace(/\s/g, '').length;
+
+        // Update the <p> element with the total character count without spaces
+        document.querySelector('.total-number').textContent = `characters : ${characterCountWithoutSpaces}`;
+    }
+
+    
+    contentDiv.addEventListener('input', countCharacters);
+
+    
     </script>
 </body>
 </html>
