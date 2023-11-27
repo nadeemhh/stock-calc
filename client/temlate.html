@@ -7,17 +7,17 @@
 
 *{margin: 0;padding: 0;box-sizing: border-box;}
 
-.main-parent{width:400px;height: 100%;background-color: rgb(255, 205, 205);overflow-y: auto;padding: 5px;}
+.main-parent{width:400px;height: 100%;overflow-y: auto;padding: 5px;}
 
 .available-sentance{width:100%;height: 300px;background-color: rgb(255, 174, 174);overflow-y: scroll;margin-bottom: 10px;border-bottom: 2px solid rgb(0, 0, 0);padding: 5px;}
 
-.text-container-parent{height: 80px;background-color: rgb(174, 174, 255);font-size: 15px;overflow-y: auto;margin-bottom: 10px;}
+.text-container-parent{height: 80px;background-color: rgb(174, 174, 255);font-size: 15px;overflow-y: auto;margin-bottom: 10px;border: 1px solid rgb(0, 0, 0);padding: 5px;}
 
 
 .buttton-container{display: flex;gap: 10px;padding: 5px;margin-bottom: 10px;align-items: center;}
-.buttton-container>button{background-color: rgb(209, 159, 255);padding: 5px;}
+.buttton-container>button{background-color: rgb(132, 0, 255);padding: 5px;color: white;}
 
-.addtext{width:100%;height: 200px;overflow-y: auto;background-color: rgb(255, 181, 181);display: none;}
+.addtext{width:100%;height: 200px;overflow-y: auto;background-color: rgb(255, 181, 181);display: none;border: 1px solid rgb(0, 0, 0);padding: 5px;}
 
 .proposal-generator{display: none;}
 
@@ -227,24 +227,15 @@ attract more potential customers.
 
          // count words
 
-        const addTextDiv = document.querySelector('.addtext');
+        // Get the text content from the div
+         text = document.querySelector('.addtext').textContent;
 
-        // Get the paragraph element where you want to display the total word count
-        const totalNumberParagraph = document.querySelector('.total-number');
+        // Remove spaces from the text and get the character count
+        const characterCountWithoutSpaces = text.replace(/\s/g, '').length;
 
-        // Function to count words in the given text
-        function countWords(text) {
-            // Remove extra spaces and then split the text by spaces to count words
-            const words = text.trim().split(/\s+/);
-            return words.length;
-        }
+        // Update the <p> element with the total character count without spaces
+        document.querySelector('.total-number').textContent = `characters : ${characterCountWithoutSpaces}`;
 
-        // Get the text content of the 'addtext' div and count the words
-        const textContent = addTextDiv.textContent;
-        const wordCount = countWords(textContent);
-
-        // Display the word count in the paragraph element
-        totalNumberParagraph.textContent = `words: ${wordCount}`;
 
 
     })
