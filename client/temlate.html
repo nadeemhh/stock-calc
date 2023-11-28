@@ -17,7 +17,7 @@
 .buttton-container{display: flex;gap: 10px;padding: 5px;margin-bottom: 10px;align-items: center;}
 .buttton-container>button{background-color: rgb(132, 0, 255);padding: 5px;color: white;}
 
-.addtext{width:100%;height: 200px;overflow-y: auto;background-color: rgb(255, 181, 181);display: none;border: 1px solid rgb(0, 0, 0);padding: 5px;}
+.addtext{width:100%;height: 200px;overflow-y: auto;background-color: rgb(230, 230, 230);display: none;border: 1px solid rgb(0, 0, 0);padding: 5px;}
 
 .proposal-generator{display: none;}
 
@@ -51,8 +51,9 @@ button.get:active {
         <input type="checkbox" checked>
     </div>
     <div class="text-container" order="1">
-1. **Responsive Design:** Optimizing the website for all devices, ensuring seamless access on smartphones, tablets, or
-desktops.
+        1. **Responsive Design:** Optimizing the website for all devices, ensuring seamless access on smartphones,
+        tablets, or
+        desktops.
     </div>
 </div>
 
@@ -74,68 +75,72 @@ desktops.
         <input type="checkbox" checked>
     </div>
     <div class="text-container" order="3">
-3. **Digital Marketing Integration**: Implement basic digital marketing elements to enhance online visibility and
-attract more potential customers.
+        3. **Digital Marketing Integration**: Implement basic digital marketing elements to enhance online visibility
+        and
+        attract more potential customers.
     </div>
 </div>
 
 <!-- new container -->
 
-    <div class="text-container-parent">
-        <div class="checkbox">
-            <input type="checkbox" checked>
-        </div>
-        <div class="text-container" order="4">
+<div class="text-container-parent">
+    <div class="checkbox">
+        <input type="checkbox" checked>
+    </div>
+    <div class="text-container" order="4">
         4. **Benefits:** I will provide you with free hosting for a lifetime, along with a free subdomain.
-        </div>
     </div>
-    
-    <!-- new container -->
-    
+</div>
 
-    <div class="text-container-parent">
-        <div class="checkbox">
-            <input type="checkbox">
-        </div>
-        <div class="text-container" order="5">
-            5. **SEO Optimization:** Industry best practices for enhanced visibility and reach.
-        </div>
-    </div>
-    
-    <!-- new container -->
+<!-- new container -->
 
 
-    <div class="text-container-parent">
-        <div class="checkbox">
-            <input type="checkbox" checked>
-        </div>
-        <div class="text-container" order="6">
-    6. **Long-Term Support:** Ongoing assistance for updates and troubleshooting.
-        </div>
+<div class="text-container-parent">
+    <div class="checkbox">
+        <input type="checkbox">
     </div>
-    
-   
-    <!-- new container -->
-    
-    <div class="text-container-parent">
-        <div class="checkbox">
-            <input type="checkbox">
-        </div>
-        <div class="text-container" order="7">
-         7. **SEO Optimization**: Implementing proven SEO techniques to increase organic traffic by optimizing on-page elements, meta tags, and content structure for better search engine rankings.    </div>
+    <div class="text-container" order="5">
+        5. **SEO Optimization:** Industry best practices for enhanced visibility and reach.
     </div>
-    
-    <!-- new container -->
+</div>
 
-    <div class="text-container-parent">
-        <div class="checkbox">
-            <input type="checkbox">
-        </div>
-        <div class="text-container" order="8">
-            8. **Security Measures:** Implementing necessary security protocols to safeguard your website and customer data, ensuring a safe browsing experience.</div>
+<!-- new container -->
+
+
+<div class="text-container-parent">
+    <div class="checkbox">
+        <input type="checkbox" checked>
     </div>
-    
-    <!-- new container -->
+    <div class="text-container" order="6">
+        6. **Long-Term Support:** Ongoing assistance for updates and troubleshooting.
+    </div>
+</div>
+
+
+<!-- new container -->
+
+<div class="text-container-parent">
+    <div class="checkbox">
+        <input type="checkbox">
+    </div>
+    <div class="text-container" order="7">
+        7. **SEO Optimization**: Implementing proven SEO techniques to increase organic traffic by optimizing on-page
+        elements, meta tags, and content structure for better search engine rankings. </div>
+</div>
+
+<!-- new container -->
+
+<div class="text-container-parent">
+    <div class="checkbox">
+        <input type="checkbox">
+    </div>
+    <div class="text-container" order="8">
+        8. **Security Measures:** Implementing necessary security protocols to safeguard your website and customer data,
+        ensuring a safe browsing experience.</div>
+</div>
+
+<!-- new container -->
+
 
     </div>
 
@@ -271,6 +276,7 @@ attract more potential customers.
 
             
     function copyToClipboard() {
+
         // Select the text to copy
         const textToCopy = document.querySelector('.addtext');
 
@@ -289,7 +295,11 @@ attract more potential customers.
         // Remove the temporary textarea
         document.body.removeChild(textarea);
 
-    
+    document.querySelector('.addtext').style.backgroundColor = 'yellow';
+
+        setTimeout(() => {
+            document.querySelector('.addtext').style.backgroundColor = 'rgb(230, 230, 230)';
+        }, 250);
     }
 
     const contentDiv = document.querySelector('.addtext');
