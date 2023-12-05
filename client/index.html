@@ -149,6 +149,20 @@
 
     })
 
+
+    window.addEventListener('beforeunload', function (event) {
+            // Cancel the event (prevents the browser from closing immediately)
+            event.preventDefault();
+            // Chrome requires returnValue to be set
+            event.returnValue = '';
+
+            // Show a confirmation dialog
+            const confirmationMessage = 'Are you sure you want to reload this page?';
+            event.returnValue = confirmationMessage; // For older browsers
+            return confirmationMessage; // For modern browsers
+        });
+
+    
   </script>
 </body>
 
