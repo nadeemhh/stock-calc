@@ -203,6 +203,7 @@ button.get:active {
 <button class="copy"  onclick="copyToClipboard()">copy</button>
 <button class="generate">generate</button>
 <button class="get">get</button>
+ <button class="short">short</button>
 </div>
 <textarea name="" class="proposal-generator" cols="40" rows="10">
 
@@ -238,6 +239,19 @@ button.get:active {
          document.querySelector('.proposal-generator').style.display = 'none';
     })
 
+
+          document.querySelector(".short").addEventListener('click', function () {
+            document.querySelector('.addtext').style.display = 'block';
+            let text = document.querySelector('.proposal-generator').value;
+            console.log(text)
+
+            let html;
+            html = `make it shorter => "${text.replace(/\n/g, '<br>')}"`;
+            document.querySelector('.addtext').insertAdjacentHTML('beforeend', html);
+            document.querySelector('.proposal-generator').style.display = 'none';
+        })
+
+        
 
     document.querySelector(".generate").addEventListener('click', function () {
 
