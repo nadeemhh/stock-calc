@@ -398,7 +398,7 @@ button.get:active {
         const characterCountWithoutSpaces = text.replace(/\s/g, '').length;
 
         // Update the <p> element with the total character count without spaces
-        document.querySelector('.total-number').textContent = `characters : ${characterCountWithoutSpaces}`;
+        document.querySelector('.total-number').textContent = `words-${characterCountWithoutSpaces}`;
     }
 
     
