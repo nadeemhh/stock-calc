@@ -227,7 +227,7 @@ button.get:active {
         console.log(text)
 
         let html;
-      html = `This is client's requirement on freelancer.com => "${text}"  Please write a proposal for this And you have to take care of these points specified below.
+      html = `This is client's requirement on freelancer.com => "${text.replace(/\n/g, '<br>')}"  Please write a proposal for this And you have to take care of these points specified below.
 <br>
 <br>
 1. Start proposal with saying 'Dear Client'.
