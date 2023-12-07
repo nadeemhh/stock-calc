@@ -73,7 +73,9 @@
     <br>
     <br>
     <label for="">Profit margin = </label><label class="pm">0</label>
-
+   <br>
+  <br>
+   <label for="">amount needed = </label><label class="amount">0</label>
   </div>
 
 
@@ -102,7 +104,9 @@
         document.querySelector('.target').textContent = target.toFixed(2);
 
         let numberofstock = Math.floor(expectedprofit / ((entryprice - stoploss) * riskRewardRatio));
-        document.querySelector('.numberofstock').textContent = (numberofstock + 1).toFixed(2);
+          let numberofstockplus = (numberofstock + 1).toFixed(2);
+
+        document.querySelector('.numberofstock').textContent = numberofstockplus;
 
         let Loss = (entryprice - stoploss) * Number(document.querySelector('.numberofstock').textContent);
 
@@ -116,7 +120,7 @@
 
         document.querySelector('.lm').textContent = (entryprice - stoploss).toFixed(2);
         document.querySelector('.pm').textContent = ((entryprice - stoploss) * riskRewardRatio).toFixed(2);
-
+        totalamount(entryprice, Number(numberofstockplus))
       }
 
 
@@ -131,7 +135,10 @@
         document.querySelector('.target').textContent = target.toFixed(2);
 
         let numberofstock = Math.floor(expectedprofit / ((stoploss - entryprice) * riskRewardRatio));
-        document.querySelector('.numberofstock').textContent = (numberofstock + 1).toFixed(2);
+
+        let numberofstockplus = (numberofstock + 1).toFixed(2);
+
+        document.querySelector('.numberofstock').textContent = numberofstockplus;
 
         let Loss = (stoploss - entryprice) * Number(document.querySelector('.numberofstock').textContent);
 
@@ -145,24 +152,31 @@
         document.querySelector('.lm').textContent = (stoploss - entryprice).toFixed(2);
         document.querySelector('.pm').textContent = ((stoploss - entryprice) * riskRewardRatio).toFixed(2);
 
+        totalamount(entryprice, Number(numberofstockplus))
       }
 
     })
 
+    function totalamount(price,shares) {
+console.log(price, shares)
+      let amount= (price * shares);
+       document.querySelector('.amount').textContent = amount.toFixed(2);
+        document.querySelector('.amount').style.color=`${amount>500000?'red':'green'}`;
+    }
 
     window.addEventListener('beforeunload', function (event) {
-            // Cancel the event (prevents the browser from closing immediately)
-            event.preventDefault();
-            // Chrome requires returnValue to be set
-            event.returnValue = '';
+        // Cancel the event (prevents the browser from closing immediately)
+        event.preventDefault();
+        // Chrome requires returnValue to be set
+        event.returnValue = '';
 
-            // Show a confirmation dialog
-            const confirmationMessage = 'Are you sure you want to reload this page?';
-            event.returnValue = confirmationMessage; // For older browsers
-            return confirmationMessage; // For modern browsers
-        });
+        // Show a confirmation dialog
+        const confirmationMessage = 'Are you sure you want to reload this page?';
+        event.returnValue = confirmationMessage; // For older browsers
+        return confirmationMessage; // For modern browsers
+      });
 
-    
+
   </script>
 </body>
 
